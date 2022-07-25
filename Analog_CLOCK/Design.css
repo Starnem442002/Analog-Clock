@@ -1,0 +1,221 @@
+/* Creating a Canvas for Clock */
+/* 
+body{
+    background-color:rgb(91, 165, 218);
+} */
+body,
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Helvetica', sans-serif;
+  background: rgb(26, 188, 156);
+  background: -moz-linear-gradient(-45deg, rgba(26, 188, 156, 1) 0%, rgba(142, 68, 173, 1) 100%);
+  background: -webkit-linear-gradient(-45deg, rgba(26, 188, 156, 1) 0%, rgba(142, 68, 173, 1) 100%);
+  background: linear-gradient(135deg, rgba(26, 188, 156, 1) 0%, rgba(142, 68, 173, 1) 100%);
+}
+
+h1 {
+  font-size: 24px;
+  margin: 10px 0 0 0;
+  font-weight: lighter;
+  text-transform: uppercase;
+  color: #eeeeee;
+}
+
+p {
+  font-size: 12px;
+  font-weight: light;
+  color: #333333;
+}
+
+span a {
+  font-size: 18px;
+  color: #cccccc;
+  text-decoration: none;
+  margin: 0 10px;
+  transition: all 0.4s ease-in-out;
+  &:hover {
+    color: #ffffff;
+  }
+}
+
+@keyframes float {
+  0% {
+    box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+    transform: translatey(0px);
+  }
+  50% {
+    box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+    transform: translatey(-20px);
+  }
+  100% {
+    box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+    transform: translatey(0px);
+  }
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar {
+  width: 150px;
+  height: 150px;
+  box-sizing: border-box;
+  border: 5px white solid;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+  transform: translatey(0px);
+  animation: float 6s ease-in-out infinite;
+  img { width: 100%; height: auto; }
+}
+
+.content {
+  width: 100%;
+  max-width: 600px;
+  padding: 20px 40px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.suppoprt-me {
+  display: inline-block;
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  width: 20vw;
+  max-width: 250px;
+  min-width: 200px;
+  z-index: 9;
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.clock {
+
+    position: relative;
+    top: 200px;
+    overflow: hidden;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    /* Setting Opacity*/
+    background-color: black;
+    border-radius: 160px;
+    border: 7px solid ghostwhite  ;
+    transform: translate(-50%) 
+}
+
+
+.clock .number{
+    /* Variable --rotation??? */
+    --rotation : 0;
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    font-size: 25px;
+
+    text-align: center;
+    color: white;
+
+    transform: rotate(calc(var(--rotation)*1deg));
+}
+
+
+.clock .n1{ --rotation:30;}
+.clock .n2{ --rotation:60;}
+.clock .n3{ --rotation:90;}
+.clock .n4{ --rotation:120;}
+.clock .n5{ --rotation:150;}
+.clock .n6{ --rotation:180;}
+.clock .n7{ --rotation:210;}
+.clock .n8{ --rotation:240;}
+.clock .n9{ --rotation:270;}
+.clock .n10{ --rotation:300;}
+.clock .n11{ --rotation:330;}
+
+
+.clock .hand{
+    --rotation: 0;
+    position: absolute;
+    height: 125px;
+    z-index: 20px;
+    width: 5px;
+    background-color: white;
+    bottom: 50%;
+    left: 50%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    transform-origin: bottom;
+    transform: translate(-50%) rotate(calc(var(--rotation)*1deg));
+}
+
+.clock .hour{
+    height: 80px;
+}
+
+.clock .second{
+    width: 2px;
+    background-color: red;
+    height: 135px;
+}
+
+.clock::after{
+    content: '';
+    position: absolute;
+    z-index: 20;
+    height: 20px;
+    width: 20px;
+    background-color: white;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%,50%);
+    border-radius: 10px;
+}
+.fa {
+    padding: 0px;
+    font-size: 5px;
+    width: 0px;
+    text-align: center;
+    text-decoration: none;
+    border-radius:100%;
+  }
+    .fa:hover {
+        opacity: 0.7;
+    }
+    #bottom{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 50px;
+        background-color: black;
+        color: white;
+        text-align: center;
+        line-height: 50px;
+    }
+
+footer{
+    
+    padding: 15px 23px;
+    color: rgb(156, 151, 151);
+    text-align: center;
+    text-shadow: 0px 0px 1px rgb(156, 151, 151);
+}
+footer span a{
+    color: rgb(255, 255, 255);
+    
+    text-decoration: none;
+}
+footer span a:hover{
+    text-decoration: underline;
+}
